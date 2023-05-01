@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import cart.config.WebMvcConfig;
 import cart.controller.dto.ProductRequest;
 import cart.entity.Product;
 import cart.service.ProductService;
@@ -24,7 +25,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(ProductController.class)
+@WebMvcTest(controllers = ProductController.class, excludeAutoConfiguration = WebMvcConfig.class)
 class ProductControllerTest {
 
     @Autowired
